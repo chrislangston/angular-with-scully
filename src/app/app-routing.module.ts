@@ -11,7 +11,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '',   redirectTo: '/about', pathMatch: 'full' },
+  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },  
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 
